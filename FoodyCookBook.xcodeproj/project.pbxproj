@@ -9,23 +9,19 @@
 /* Begin PBXBuildFile section */
 		D629121E26AD35AA000C5732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629121D26AD35AA000C5732 /* AppDelegate.swift */; };
 		D629122026AD35AA000C5732 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629121F26AD35AA000C5732 /* SceneDelegate.swift */; };
-		D629122226AD35AB000C5732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629122126AD35AB000C5732 /* ViewController.swift */; };
+		D629122226AD35AB000C5732 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629122126AD35AB000C5732 /* FoodViewController.swift */; };
 		D629122526AD35AB000C5732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D629122326AD35AB000C5732 /* Main.storyboard */; };
 		D629122726AD35AC000C5732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D629122626AD35AC000C5732 /* Assets.xcassets */; };
 		D629122A26AD35AC000C5732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D629122826AD35AC000C5732 /* LaunchScreen.storyboard */; };
 		D629123526AD35AC000C5732 /* FoodyCookBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629123426AD35AC000C5732 /* FoodyCookBookTests.swift */; };
-		D629124026AD35AC000C5732 /* FoodyCookBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629123F26AD35AC000C5732 /* FoodyCookBookUITests.swift */; };
+		D629125026AD3CAF000C5732 /* SearchFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629124F26AD3CAF000C5732 /* SearchFoodViewController.swift */; };
+		D629125226AD3CC4000C5732 /* FavouriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125126AD3CC4000C5732 /* FavouriteFoodViewController.swift */; };
+		D629125526AD3DE6000C5732 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125426AD3DE6000C5732 /* HomeViewController.swift */; };
+		D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		D629123126AD35AC000C5732 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D629121226AD35AA000C5732 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D629121926AD35AA000C5732;
-			remoteInfo = FoodyCookBook;
-		};
-		D629123C26AD35AC000C5732 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D629121226AD35AA000C5732 /* Project object */;
 			proxyType = 1;
@@ -38,7 +34,7 @@
 		D629121A26AD35AA000C5732 /* FoodyCookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodyCookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D629121D26AD35AA000C5732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D629121F26AD35AA000C5732 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D629122126AD35AB000C5732 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D629122126AD35AB000C5732 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		D629122426AD35AB000C5732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D629122626AD35AC000C5732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D629122926AD35AC000C5732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,9 +42,10 @@
 		D629123026AD35AC000C5732 /* FoodyCookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodyCookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D629123426AD35AC000C5732 /* FoodyCookBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodyCookBookTests.swift; sourceTree = "<group>"; };
 		D629123626AD35AC000C5732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D629123B26AD35AC000C5732 /* FoodyCookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodyCookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D629123F26AD35AC000C5732 /* FoodyCookBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodyCookBookUITests.swift; sourceTree = "<group>"; };
-		D629124126AD35AC000C5732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D629124F26AD3CAF000C5732 /* SearchFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewController.swift; sourceTree = "<group>"; };
+		D629125126AD3CC4000C5732 /* FavouriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFoodViewController.swift; sourceTree = "<group>"; };
+		D629125426AD3DE6000C5732 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +63,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D629123826AD35AC000C5732 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +71,6 @@
 			children = (
 				D629121C26AD35AA000C5732 /* FoodyCookBook */,
 				D629123326AD35AC000C5732 /* FoodyCookBookTests */,
-				D629123E26AD35AC000C5732 /* FoodyCookBookUITests */,
 				D629121B26AD35AA000C5732 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +80,6 @@
 			children = (
 				D629121A26AD35AA000C5732 /* FoodyCookBook.app */,
 				D629123026AD35AC000C5732 /* FoodyCookBookTests.xctest */,
-				D629123B26AD35AC000C5732 /* FoodyCookBookUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,10 +89,13 @@
 			children = (
 				D629121D26AD35AA000C5732 /* AppDelegate.swift */,
 				D629121F26AD35AA000C5732 /* SceneDelegate.swift */,
-				D629122126AD35AB000C5732 /* ViewController.swift */,
-				D629122326AD35AB000C5732 /* Main.storyboard */,
+				D629124D26AD3C2D000C5732 /* ViewControllers */,
+				D629125326AD3CCA000C5732 /* View */,
+				D629125626AD3EF6000C5732 /* Utilities */,
+				D629125926AD4F1B000C5732 /* Network */,
+				D629125A26AD4F44000C5732 /* Model */,
+				D629124E26AD3C4C000C5732 /* Stroyboards */,
 				D629122626AD35AC000C5732 /* Assets.xcassets */,
-				D629122826AD35AC000C5732 /* LaunchScreen.storyboard */,
 				D629122B26AD35AC000C5732 /* Info.plist */,
 			);
 			path = FoodyCookBook;
@@ -119,13 +110,53 @@
 			path = FoodyCookBookTests;
 			sourceTree = "<group>";
 		};
-		D629123E26AD35AC000C5732 /* FoodyCookBookUITests */ = {
+		D629124D26AD3C2D000C5732 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D629123F26AD35AC000C5732 /* FoodyCookBookUITests.swift */,
-				D629124126AD35AC000C5732 /* Info.plist */,
+				D629125426AD3DE6000C5732 /* HomeViewController.swift */,
+				D629122126AD35AB000C5732 /* FoodViewController.swift */,
+				D629124F26AD3CAF000C5732 /* SearchFoodViewController.swift */,
+				D629125126AD3CC4000C5732 /* FavouriteFoodViewController.swift */,
 			);
-			path = FoodyCookBookUITests;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D629124E26AD3C4C000C5732 /* Stroyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D629122326AD35AB000C5732 /* Main.storyboard */,
+				D629122826AD35AC000C5732 /* LaunchScreen.storyboard */,
+			);
+			path = Stroyboards;
+			sourceTree = "<group>";
+		};
+		D629125326AD3CCA000C5732 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D629125626AD3EF6000C5732 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D629125926AD4F1B000C5732 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D629125A26AD4F44000C5732 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,24 +197,6 @@
 			productReference = D629123026AD35AC000C5732 /* FoodyCookBookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D629123A26AD35AC000C5732 /* FoodyCookBookUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D629124A26AD35AC000C5732 /* Build configuration list for PBXNativeTarget "FoodyCookBookUITests" */;
-			buildPhases = (
-				D629123726AD35AC000C5732 /* Sources */,
-				D629123826AD35AC000C5732 /* Frameworks */,
-				D629123926AD35AC000C5732 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D629123D26AD35AC000C5732 /* PBXTargetDependency */,
-			);
-			name = FoodyCookBookUITests;
-			productName = FoodyCookBookUITests;
-			productReference = D629123B26AD35AC000C5732 /* FoodyCookBookUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +210,6 @@
 						CreatedOnToolsVersion = 12.5;
 					};
 					D629122F26AD35AC000C5732 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = D629121926AD35AA000C5732;
-					};
-					D629123A26AD35AC000C5732 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = D629121926AD35AA000C5732;
 					};
@@ -221,7 +230,6 @@
 			targets = (
 				D629121926AD35AA000C5732 /* FoodyCookBook */,
 				D629122F26AD35AC000C5732 /* FoodyCookBookTests */,
-				D629123A26AD35AC000C5732 /* FoodyCookBookUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,13 +252,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D629123926AD35AC000C5732 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -258,9 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D629122226AD35AB000C5732 /* ViewController.swift in Sources */,
+				D629125226AD3CC4000C5732 /* FavouriteFoodViewController.swift in Sources */,
+				D629122226AD35AB000C5732 /* FoodViewController.swift in Sources */,
 				D629121E26AD35AA000C5732 /* AppDelegate.swift in Sources */,
+				D629125026AD3CAF000C5732 /* SearchFoodViewController.swift in Sources */,
 				D629122026AD35AA000C5732 /* SceneDelegate.swift in Sources */,
+				D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */,
+				D629125526AD3DE6000C5732 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,14 +277,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D629123726AD35AC000C5732 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D629124026AD35AC000C5732 /* FoodyCookBookUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -287,11 +284,6 @@
 			isa = PBXTargetDependency;
 			target = D629121926AD35AA000C5732 /* FoodyCookBook */;
 			targetProxy = D629123126AD35AC000C5732 /* PBXContainerItemProxy */;
-		};
-		D629123D26AD35AC000C5732 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D629121926AD35AA000C5732 /* FoodyCookBook */;
-			targetProxy = D629123C26AD35AC000C5732 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -439,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6LN4XWA2V;
 				INFOPLIST_FILE = FoodyCookBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6LN4XWA2V;
 				INFOPLIST_FILE = FoodyCookBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,46 +507,6 @@
 			};
 			name = Release;
 		};
-		D629124B26AD35AC000C5732 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B6LN4XWA2V;
-				INFOPLIST_FILE = FoodyCookBookUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.va.FoodyCookBookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FoodyCookBook;
-			};
-			name = Debug;
-		};
-		D629124C26AD35AC000C5732 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B6LN4XWA2V;
-				INFOPLIST_FILE = FoodyCookBookUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.va.FoodyCookBookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FoodyCookBook;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -579,15 +533,6 @@
 			buildConfigurations = (
 				D629124826AD35AC000C5732 /* Debug */,
 				D629124926AD35AC000C5732 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D629124A26AD35AC000C5732 /* Build configuration list for PBXNativeTarget "FoodyCookBookUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D629124B26AD35AC000C5732 /* Debug */,
-				D629124C26AD35AC000C5732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
