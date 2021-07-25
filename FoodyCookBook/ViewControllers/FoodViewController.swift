@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class FoodViewController: UIViewController, StoryboardIdentifiable {
 
@@ -21,18 +22,37 @@ final class FoodViewController: UIViewController, StoryboardIdentifiable {
     }
 
     private func fetchRandomFood() {
-        NetworkManager.request(endpoint: api) { [weak loadingIndicator] (result: Result<Food, Error>?) in
+        NetworkManager.request(endpoint: api) { [weak self] (result: Result<Food, Error>?) in
 
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                loadingIndicator?.state = .stop
+                self.loadingIndicator?.state = .stop
 
                 do {
-                    print(try result?.get() ?? "")
+                    if let food = try result?.get() {
+                        self.showFoodDetailView(with: food)
+                    }
                 } catch (let error){
                     print(error.localizedDescription)
                 }
             }
         }
+    }
+
+    private func showFoodDetailView(with food: Food) {
+        let foodDetailView = UIHostingController(rootView: FoodDetailView(food: food))
+        add(foodDetailView)
+        setupConstraints(with: foodDetailView.view)
+    }
+
+    private func setupConstraints(with childView: UIView) {
+        childView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            childView.topAnchor.constraint(equalTo: view.topAnchor),
+            childView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: childView.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: childView.bottomAnchor)
+        ])
     }
 }
 

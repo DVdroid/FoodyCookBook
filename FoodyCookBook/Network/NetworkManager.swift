@@ -8,6 +8,7 @@
 import Foundation
 
 final class NetworkManager {
+
     fileprivate class func buildURL(endpoint: API) -> URLComponents {
 
         var components = URLComponents()
@@ -42,14 +43,10 @@ final class NetworkManager {
             }
 
             guard response != nil, let data = data else { return }
-            if let responseObject = try? JSONDecoder().decode(T.self, from: data){
+            do {
+                let responseObject = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(responseObject))
-            } else {
-                let error = NSError(domain: "com.va",
-                                    code: 200,
-                                    userInfo: [
-                                        NSLocalizedDescriptionKey: "Failed"
-                                    ])
+            } catch let error  {
                 completion(.failure(error))
                 print("Decode error \(error)")
             }
