@@ -7,12 +7,21 @@
 
 import UIKit
 
-extension UIViewController {
-    class func loadFromStoryboard<T: UIViewController>(with name: String = "Main",
-                                                       and bundle: Bundle = .main) -> T {
+protocol StoryboardIdentifiable {
+    static var storyboardIdentifier: String { get }
+}
 
-        let storyboard = UIStoryboard(name: name, bundle: bundle)
-        guard let viewController = storyboard.instantiateViewController(identifier: String(describing: self)) as? T else {
+extension StoryboardIdentifiable where Self: UIViewController {
+    static var storyboardIdentifier: String {
+        return String(describing: self)
+    }
+}
+
+extension UIViewController {
+    class func loadFromStoryboard<T: UIViewController>(with name: String = "Main") -> T  where T: StoryboardIdentifiable {
+
+        let storyboard = UIStoryboard(name: name, bundle: Bundle(for: T.self))
+        guard let viewController = storyboard.instantiateViewController(identifier: T.storyboardIdentifier) as? T else {
             fatalError("ViewController named \(String(describing: T.self)) doesn't exists")
         }
         return viewController

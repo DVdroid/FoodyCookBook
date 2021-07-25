@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UITabBarController {
+final class HomeViewController: UITabBarController, StoryboardIdentifiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +20,17 @@ final class HomeViewController: UITabBarController {
     }
 
     private func setupTabs() {
-        let randomFoodVC = FoodViewController.loadFromStoryboard()
+        let randomFoodVC: FoodViewController = FoodViewController.loadFromStoryboard()
+        randomFoodVC.loadingIndicator = LoadingIndicator()
         let randomFoodTab = tabBarItem(with: "Home", and: "house")
         randomFoodVC.tabBarItem = randomFoodTab
 
-        let searchFoodVC = SearchFoodViewController.loadFromStoryboard()
+        let searchFoodVC: SearchFoodViewController = SearchFoodViewController.loadFromStoryboard()
+        searchFoodVC.loadingIndicator = LoadingIndicator()
         let searchFoodTab = tabBarItem(with: "search", and: "magnifyingglass.circle")
         searchFoodVC.tabBarItem = searchFoodTab
 
-        let favouriteFoodVC = FavouriteFoodViewController.loadFromStoryboard()
+        let favouriteFoodVC: FavouriteFoodViewController = FavouriteFoodViewController.loadFromStoryboard()
         let favouriteFoodTab = tabBarItem(with: "favourite", and: "star")
         favouriteFoodVC.tabBarItem = favouriteFoodTab
 

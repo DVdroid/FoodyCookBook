@@ -7,6 +7,10 @@
 
 import UIKit
 
-final class FavouriteFoodViewController: UIViewController {
+final class FavouriteFoodViewController: UIViewController, StoryboardIdentifiable {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
 }

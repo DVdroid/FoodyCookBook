@@ -18,6 +18,14 @@
 		D629125226AD3CC4000C5732 /* FavouriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125126AD3CC4000C5732 /* FavouriteFoodViewController.swift */; };
 		D629125526AD3DE6000C5732 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125426AD3DE6000C5732 /* HomeViewController.swift */; };
 		D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */; };
+		D629125C26AD62DC000C5732 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125B26AD62DC000C5732 /* API.swift */; };
+		D629125E26AD63FE000C5732 /* FoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125D26AD63FE000C5732 /* FoodAPI.swift */; };
+		D629126026AD68E1000C5732 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629125F26AD68E1000C5732 /* NetworkManager.swift */; };
+		D629126226AD6CC8000C5732 /* UIImageView+Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126126AD6CC8000C5732 /* UIImageView+Downloader.swift */; };
+		D629126426AD7000000C5732 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126326AD7000000C5732 /* LoadingIndicator.swift */; };
+		D629126626AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126526AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift */; };
+		D629126826AD717E000C5732 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126726AD717E000C5732 /* Color+Extensions.swift */; };
+		D629126A26AD7F15000C5732 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126926AD7F15000C5732 /* Food.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +54,14 @@
 		D629125126AD3CC4000C5732 /* FavouriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFoodViewController.swift; sourceTree = "<group>"; };
 		D629125426AD3DE6000C5732 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		D629125B26AD62DC000C5732 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D629125D26AD63FE000C5732 /* FoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAPI.swift; sourceTree = "<group>"; };
+		D629125F26AD68E1000C5732 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D629126126AD6CC8000C5732 /* UIImageView+Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Downloader.swift"; sourceTree = "<group>"; };
+		D629126326AD7000000C5732 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		D629126526AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator_ActivityIndicator.swift; sourceTree = "<group>"; };
+		D629126726AD717E000C5732 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		D629126926AD7F15000C5732 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +140,8 @@
 		D629124E26AD3C4C000C5732 /* Stroyboards */ = {
 			isa = PBXGroup;
 			children = (
-				D629122326AD35AB000C5732 /* Main.storyboard */,
 				D629122826AD35AC000C5732 /* LaunchScreen.storyboard */,
+				D629122326AD35AB000C5732 /* Main.storyboard */,
 			);
 			path = Stroyboards;
 			sourceTree = "<group>";
@@ -133,6 +149,9 @@
 		D629125326AD3CCA000C5732 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D629126326AD7000000C5732 /* LoadingIndicator.swift */,
+				D629126526AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift */,
+				D629126726AD717E000C5732 /* Color+Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */,
+				D629126126AD6CC8000C5732 /* UIImageView+Downloader.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -148,6 +168,9 @@
 		D629125926AD4F1B000C5732 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D629125B26AD62DC000C5732 /* API.swift */,
+				D629125D26AD63FE000C5732 /* FoodAPI.swift */,
+				D629125F26AD68E1000C5732 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -155,6 +178,7 @@
 		D629125A26AD4F44000C5732 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D629126926AD7F15000C5732 /* Food.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,12 +283,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D629126426AD7000000C5732 /* LoadingIndicator.swift in Sources */,
 				D629125226AD3CC4000C5732 /* FavouriteFoodViewController.swift in Sources */,
 				D629122226AD35AB000C5732 /* FoodViewController.swift in Sources */,
+				D629126026AD68E1000C5732 /* NetworkManager.swift in Sources */,
+				D629125E26AD63FE000C5732 /* FoodAPI.swift in Sources */,
 				D629121E26AD35AA000C5732 /* AppDelegate.swift in Sources */,
+				D629126226AD6CC8000C5732 /* UIImageView+Downloader.swift in Sources */,
 				D629125026AD3CAF000C5732 /* SearchFoodViewController.swift in Sources */,
 				D629122026AD35AA000C5732 /* SceneDelegate.swift in Sources */,
+				D629126A26AD7F15000C5732 /* Food.swift in Sources */,
 				D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */,
+				D629125C26AD62DC000C5732 /* API.swift in Sources */,
+				D629126826AD717E000C5732 /* Color+Extensions.swift in Sources */,
+				D629126626AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift in Sources */,
 				D629125526AD3DE6000C5732 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
