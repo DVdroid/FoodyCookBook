@@ -14,7 +14,10 @@ extension UIImageView {
 
     @discardableResult
     func loadImageFromURL(urlString: String,
-                          placeHolder: UIImage? = nil) -> URLSessionDataTask? {
+                          targetSize: CGSize,
+                          placeHolder: UIImage? = UIImage(named: "recipe-placeholder.jpg"),
+                          completion: @escaping ((Bool) -> Void)) -> URLSessionDataTask? {
+
         self.image = nil
         let key = NSString(string: urlString)
         if let cacheImage = imageCache.object(forKey: key){
@@ -29,8 +32,13 @@ extension UIImageView {
             DispatchQueue.main.async {
                 if let data = data,
                    let downloadImage = UIImage(data: data) {
-                    imageCache.setObject(downloadImage, forKey: NSString(string: urlString))
-                    self.image = downloadImage
+                    let scaledImage = downloadImage.scalePreservingAspectRatio(targetSize: targetSize)
+                    imageCache.setObject(scaledImage, forKey: NSString(string: urlString))
+                    self.image = scaledImage
+
+                    completion(true)
+                } else {
+                    completion(false)
                 }
             }
         }

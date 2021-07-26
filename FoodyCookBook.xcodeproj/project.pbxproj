@@ -30,6 +30,9 @@
 		D629126E26ADD575000C5732 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126D26ADD575000C5732 /* ListView.swift */; };
 		D629127026ADDEB9000C5732 /* UIViewController+ChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629126F26ADDEB9000C5732 /* UIViewController+ChildController.swift */; };
 		D629127D26ADEA1E000C5732 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629127C26ADEA1E000C5732 /* AsyncImage.swift */; };
+		D63B9D8B26AEAF8B0037616C /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D8A26AEAF8B0037616C /* UIImage+Resize.swift */; };
+		D63B9D8D26AEB4950037616C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D8C26AEB4950037616C /* HeaderView.swift */; };
+		D63B9D8F26AED9D30037616C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D8E26AED9D30037616C /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		D629126D26ADD575000C5732 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D629126F26ADDEB9000C5732 /* UIViewController+ChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildController.swift"; sourceTree = "<group>"; };
 		D629127C26ADEA1E000C5732 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		D63B9D8A26AEAF8B0037616C /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		D63B9D8C26AEB4950037616C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D63B9D8E26AED9D30037616C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,8 @@
 				D629126526AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift */,
 				D629126726AD717E000C5732 /* Color+Extensions.swift */,
 				D629126B26ADD453000C5732 /* FoodDetailView.swift */,
+				D63B9D8C26AEB4950037616C /* HeaderView.swift */,
+				D63B9D8E26AED9D30037616C /* DescriptionView.swift */,
 				D629126D26ADD575000C5732 /* ListView.swift */,
 				D629127C26ADEA1E000C5732 /* AsyncImage.swift */,
 			);
@@ -170,6 +178,7 @@
 		D629125626AD3EF6000C5732 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D63B9D8A26AEAF8B0037616C /* UIImage+Resize.swift */,
 				D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */,
 				D629126126AD6CC8000C5732 /* UIImageView+Downloader.swift */,
 				D629126F26ADDEB9000C5732 /* UIViewController+ChildController.swift */,
@@ -302,12 +311,15 @@
 				D629126026AD68E1000C5732 /* NetworkManager.swift in Sources */,
 				D629125E26AD63FE000C5732 /* FoodAPI.swift in Sources */,
 				D629126C26ADD453000C5732 /* FoodDetailView.swift in Sources */,
+				D63B9D8F26AED9D30037616C /* DescriptionView.swift in Sources */,
 				D629127026ADDEB9000C5732 /* UIViewController+ChildController.swift in Sources */,
 				D629121E26AD35AA000C5732 /* AppDelegate.swift in Sources */,
 				D629126226AD6CC8000C5732 /* UIImageView+Downloader.swift in Sources */,
 				D629125026AD3CAF000C5732 /* SearchFoodViewController.swift in Sources */,
 				D629122026AD35AA000C5732 /* SceneDelegate.swift in Sources */,
 				D629126A26AD7F15000C5732 /* Food.swift in Sources */,
+				D63B9D8D26AEB4950037616C /* HeaderView.swift in Sources */,
+				D63B9D8B26AEAF8B0037616C /* UIImage+Resize.swift in Sources */,
 				D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */,
 				D629125C26AD62DC000C5732 /* API.swift in Sources */,
 				D629127D26ADEA1E000C5732 /* AsyncImage.swift in Sources */,

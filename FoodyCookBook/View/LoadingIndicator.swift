@@ -8,21 +8,21 @@
 
 import UIKit
 
-enum State: Equatable {
+enum LoadingIndicatorState: Equatable {
     case start(inView: UIView?)
     case pause
     case resume
     case stop
 }
 
-enum Style: Equatable {
+enum LoadingIndicatorStyle: Equatable {
     case activityIndicator
 }
 
 protocol LoadingIndicatorProtocol where Self: UIView {
     var isActive: Bool { get }
     var isPaused: Bool { get }
-    var state: State { get set }
+    var state: LoadingIndicatorState { get set }
     init(frame: CGRect)
     init?(coder: NSCoder)
 }
@@ -31,7 +31,7 @@ final class LoadingIndicator {
 
     private var loadingView: LoadingIndicatorProtocol?
 
-    var state: State = .stop {
+    var state: LoadingIndicatorState = .stop {
         didSet {
 
             switch state {
@@ -52,7 +52,7 @@ final class LoadingIndicator {
         }
     }
 
-    init(withStyle style: Style = .activityIndicator) {
+    init(withStyle style: LoadingIndicatorStyle = .activityIndicator) {
         switch style {
         case .activityIndicator:
             loadingView = LoadingIndicator_ActivityIndicator(frame: UIScreen.main.bounds)

@@ -83,6 +83,7 @@ extension Food {
 struct Meal {
 
     private(set) var ingredients: [Ingredient]
+    var isFavourite: Bool? = false
 
     let idMeal: String
     let strMeal: String

@@ -44,10 +44,10 @@ final class LoadingIndicator_ActivityIndicator: UIView, LoadingIndicatorProtocol
     }
     
     var isPaused: Bool {
-        return self.state == State.pause
+        return self.state == .pause
     }
     
-    var state: State = .stop {
+    var state: LoadingIndicatorState = .stop {
         didSet {
             switch state {
             case .start(inView: let parentView):
