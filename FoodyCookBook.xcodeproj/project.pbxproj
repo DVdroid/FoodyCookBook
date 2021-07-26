@@ -33,6 +33,9 @@
 		D63B9D8B26AEAF8B0037616C /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D8A26AEAF8B0037616C /* UIImage+Resize.swift */; };
 		D63B9D8D26AEB4950037616C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D8C26AEB4950037616C /* HeaderView.swift */; };
 		D63B9D8F26AED9D30037616C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D8E26AED9D30037616C /* DescriptionView.swift */; };
+		D63B9D9226AF02AA0037616C /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9126AF02AA0037616C /* UIView+AutoLayout.swift */; };
+		D63B9D9626AF06CD0037616C /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */; };
+		D63B9D9726AF06CD0037616C /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		D63B9D8A26AEAF8B0037616C /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		D63B9D8C26AEB4950037616C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D63B9D8E26AED9D30037616C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		D63B9D9126AF02AA0037616C /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 				D629121F26AD35AA000C5732 /* SceneDelegate.swift */,
 				D629124D26AD3C2D000C5732 /* ViewControllers */,
 				D629125326AD3CCA000C5732 /* View */,
+				D63B9D9326AF065B0037616C /* XIBs */,
 				D629125626AD3EF6000C5732 /* Utilities */,
 				D629125926AD4F1B000C5732 /* Network */,
 				D629125A26AD4F44000C5732 /* Model */,
@@ -165,12 +172,8 @@
 			children = (
 				D629126326AD7000000C5732 /* LoadingIndicator.swift */,
 				D629126526AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift */,
-				D629126726AD717E000C5732 /* Color+Extensions.swift */,
-				D629126B26ADD453000C5732 /* FoodDetailView.swift */,
-				D63B9D8C26AEB4950037616C /* HeaderView.swift */,
-				D63B9D8E26AED9D30037616C /* DescriptionView.swift */,
-				D629126D26ADD575000C5732 /* ListView.swift */,
-				D629127C26ADEA1E000C5732 /* AsyncImage.swift */,
+				D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */,
+				D63B9D9026AEFE130037616C /* SwiftUI */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,10 +181,12 @@
 		D629125626AD3EF6000C5732 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D629126726AD717E000C5732 /* Color+Extensions.swift */,
 				D63B9D8A26AEAF8B0037616C /* UIImage+Resize.swift */,
 				D629125726AD3F76000C5732 /* UIViewController+Storyboard.swift */,
 				D629126126AD6CC8000C5732 /* UIImageView+Downloader.swift */,
 				D629126F26ADDEB9000C5732 /* UIViewController+ChildController.swift */,
+				D63B9D9126AF02AA0037616C /* UIView+AutoLayout.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -202,6 +207,26 @@
 				D629126926AD7F15000C5732 /* Food.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D63B9D9026AEFE130037616C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D629126B26ADD453000C5732 /* FoodDetailView.swift */,
+				D63B9D8C26AEB4950037616C /* HeaderView.swift */,
+				D63B9D8E26AED9D30037616C /* DescriptionView.swift */,
+				D629126D26ADD575000C5732 /* ListView.swift */,
+				D629127C26ADEA1E000C5732 /* AsyncImage.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		D63B9D9326AF065B0037616C /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63B9D9726AF06CD0037616C /* MealTableViewCell.xib in Resources */,
 				D629122A26AD35AC000C5732 /* LaunchScreen.storyboard in Resources */,
 				D629122726AD35AC000C5732 /* Assets.xcassets in Resources */,
 				D629122526AD35AB000C5732 /* Main.storyboard in Resources */,
@@ -304,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63B9D9226AF02AA0037616C /* UIView+AutoLayout.swift in Sources */,
 				D629126426AD7000000C5732 /* LoadingIndicator.swift in Sources */,
 				D629125226AD3CC4000C5732 /* FavouriteFoodViewController.swift in Sources */,
 				D629122226AD35AB000C5732 /* FoodViewController.swift in Sources */,
@@ -323,6 +350,7 @@
 				D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */,
 				D629125C26AD62DC000C5732 /* API.swift in Sources */,
 				D629127D26ADEA1E000C5732 /* AsyncImage.swift in Sources */,
+				D63B9D9626AF06CD0037616C /* MealTableViewCell.swift in Sources */,
 				D629126826AD717E000C5732 /* Color+Extensions.swift in Sources */,
 				D629126626AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift in Sources */,
 				D629125526AD3DE6000C5732 /* HomeViewController.swift in Sources */,

@@ -33,7 +33,7 @@ enum FoodAPI: API {
         switch self {
         case .getFood(searchText: let searchString):
             if let searchString = searchString {
-                params.append(URLQueryItem.init(name: "k", value: searchString))
+                params.append(URLQueryItem(name: "f", value: searchString))
             }
             return params
         default:

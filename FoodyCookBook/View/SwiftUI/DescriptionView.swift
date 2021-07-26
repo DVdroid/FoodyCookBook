@@ -18,14 +18,12 @@ struct DescriptionView: View {
         HStack {
             VStack {
                 Text("\(title)")
-                    .frame(width: UIScreen.main.bounds.width / 1.8, alignment: .leading)
+                    .frame(width: UIScreen.main.bounds.width / 1.4, alignment: .leading)
                     .font(.title)
                 Text("\(subTitle)")
                     .font(.caption)
-                    .frame(width: UIScreen.main.bounds.width / 1.8, alignment: .leading)
+                    .frame(width: UIScreen.main.bounds.width / 1.4, alignment: .leading)
             }
-
-            Spacer()
 
             Button(action: action) {
                 if isFavourite {

@@ -21,12 +21,10 @@ final class HomeViewController: UITabBarController, StoryboardIdentifiable {
 
     private func setupTabs() {
         let randomFoodVC: FoodViewController = FoodViewController.loadFromStoryboard()
-        randomFoodVC.loadingIndicator = LoadingIndicator()
         let randomFoodTab = tabBarItem(with: "Home", and: "house")
         randomFoodVC.tabBarItem = randomFoodTab
 
-        let searchFoodVC: SearchFoodViewController = SearchFoodViewController.loadFromStoryboard()
-        searchFoodVC.loadingIndicator = LoadingIndicator()
+        let searchFoodVC: SearchFoodViewController = SearchFoodViewController(with: [])
         let searchFoodTab = tabBarItem(with: "search", and: "magnifyingglass.circle")
         searchFoodVC.tabBarItem = searchFoodTab
 
