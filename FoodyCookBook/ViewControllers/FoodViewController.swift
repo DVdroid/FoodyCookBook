@@ -16,14 +16,27 @@ final class FoodViewController: UIViewController, StoryboardIdentifiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        loadingIndicator.state = .start(inView: view)
-
+        registerForAppStateNotifications()
         fetchRandomFood()
     }
 
-    private func fetchRandomFood() {
-        NetworkManager.request(endpoint: api) { [weak self] (result: Result<Food, Error>?) in
+    private func registerForAppStateNotifications() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(forName: UIApplication.willEnterForegroundNotification,
+                                       object: nil, queue: .main) { (notification) in
+                                        self.handleAppWillBecomeActive(notification: notification) }
+        notificationCenter.addObserver(forName: UIApplication.willResignActiveNotification,
+                                       object: nil, queue: .main) { (notification) in
+                                        self.handleAppWillResignActive(notification: notification) }
+    }
 
+    private func handleAppWillBecomeActive(notification: Notification) { fetchRandomFood() }
+    private func handleAppWillResignActive(notification: Notification) { loadingIndicator.state = .stop }
+
+    private func fetchRandomFood() {
+        loadingIndicator.state = .start(inView: view)
+
+        NetworkManager.request(endpoint: api) { [weak self] (result: Result<Food, Error>?) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.loadingIndicator.state = .stop
@@ -41,7 +54,19 @@ final class FoodViewController: UIViewController, StoryboardIdentifiable {
 
     private func showFoodDetailView(with food: Food) {
         guard let meal = food.meals.first else { return }
-        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: meal))
+        
+        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: meal) { [weak self] meal in
+            guard let self = self else { return }
+            if !meal.isFavourite {
+                let isSaved = FilesManager.shared.save(meal: meal)
+                if isSaved {
+                    UIAlertController.showOkAlert(in: self,
+                                                  with: "Success",
+                                                  and: "\(meal.strMeal) added as favourite")
+                }
+            }
+        })
+        
         add(foodDetailView)
         view.setupConstraintsFromAllSides(with: foodDetailView.view)
     }

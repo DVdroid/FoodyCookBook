@@ -36,6 +36,9 @@
 		D63B9D9226AF02AA0037616C /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9126AF02AA0037616C /* UIView+AutoLayout.swift */; };
 		D63B9D9626AF06CD0037616C /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */; };
 		D63B9D9726AF06CD0037616C /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */; };
+		D63B9D9926AF318C0037616C /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9826AF318C0037616C /* FavouriteButton.swift */; };
+		D63B9D9B26AF36AC0037616C /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9A26AF36AC0037616C /* FilesManager.swift */; };
+		D63B9D9F26AF750D0037616C /* UIAlertController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		D63B9D9126AF02AA0037616C /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
+		D63B9D9826AF318C0037616C /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
+		D63B9D9A26AF36AC0037616C /* FilesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
+		D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ShowAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,7 @@
 				D629126126AD6CC8000C5732 /* UIImageView+Downloader.swift */,
 				D629126F26ADDEB9000C5732 /* UIViewController+ChildController.swift */,
 				D63B9D9126AF02AA0037616C /* UIView+AutoLayout.swift */,
+				D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 		D629125A26AD4F44000C5732 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D63B9D9A26AF36AC0037616C /* FilesManager.swift */,
 				D629126926AD7F15000C5732 /* Food.swift */,
 			);
 			path = Model;
@@ -217,6 +225,7 @@
 				D63B9D8E26AED9D30037616C /* DescriptionView.swift */,
 				D629126D26ADD575000C5732 /* ListView.swift */,
 				D629127C26ADEA1E000C5732 /* AsyncImage.swift */,
+				D63B9D9826AF318C0037616C /* FavouriteButton.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -342,14 +351,17 @@
 				D629127026ADDEB9000C5732 /* UIViewController+ChildController.swift in Sources */,
 				D629121E26AD35AA000C5732 /* AppDelegate.swift in Sources */,
 				D629126226AD6CC8000C5732 /* UIImageView+Downloader.swift in Sources */,
+				D63B9D9F26AF750D0037616C /* UIAlertController+ShowAlert.swift in Sources */,
 				D629125026AD3CAF000C5732 /* SearchFoodViewController.swift in Sources */,
 				D629122026AD35AA000C5732 /* SceneDelegate.swift in Sources */,
 				D629126A26AD7F15000C5732 /* Food.swift in Sources */,
 				D63B9D8D26AEB4950037616C /* HeaderView.swift in Sources */,
 				D63B9D8B26AEAF8B0037616C /* UIImage+Resize.swift in Sources */,
+				D63B9D9B26AF36AC0037616C /* FilesManager.swift in Sources */,
 				D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */,
 				D629125C26AD62DC000C5732 /* API.swift in Sources */,
 				D629127D26ADEA1E000C5732 /* AsyncImage.swift in Sources */,
+				D63B9D9926AF318C0037616C /* FavouriteButton.swift in Sources */,
 				D63B9D9626AF06CD0037616C /* MealTableViewCell.swift in Sources */,
 				D629126826AD717E000C5732 /* Color+Extensions.swift in Sources */,
 				D629126626AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Food: Decodable {
+final class Food: Codable {
     let meals: [Meal]
     init(with meals: [Meal]) { self.meals = meals }
 }
@@ -135,10 +135,15 @@ extension Food {
     }
 }
 
-struct Meal {
+struct Meal: Codable {
 
     private(set) var ingredients: [Ingredient]
-    var isFavourite: Bool? = false
+
+    var savedMeals: [Meal]? { try? FilesManager.shared.loadJSON() }
+    var isFavourite: Bool {
+        guard let unwrappedSavedMeals = savedMeals else { return false }
+        return !unwrappedSavedMeals.filter { $0.idMeal == idMeal }.isEmpty
+    }
 
     let idMeal: String
     let strMeal: String
@@ -249,9 +254,10 @@ struct Meal {
         case strCreativeCommonsConfirmed
         case dateModified
     }
+
 }
 
-extension Meal: Decodable {
+extension Meal {
 
     init(from decoder: Decoder) throws {
 
@@ -390,7 +396,7 @@ extension Meal: CustomDebugStringConvertible {
 }
 
 
-struct Ingredient: Decodable {
+struct Ingredient: Codable {
     private(set) var ingredientID = UUID()
     let ingredient: String?
     let measure: String?

@@ -11,7 +11,6 @@ final class HomeViewController: UITabBarController, StoryboardIdentifiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +27,7 @@ final class HomeViewController: UITabBarController, StoryboardIdentifiable {
         let searchFoodTab = tabBarItem(with: "search", and: "magnifyingglass.circle")
         searchFoodVC.tabBarItem = searchFoodTab
 
-        let favouriteFoodVC: FavouriteFoodViewController = FavouriteFoodViewController.loadFromStoryboard()
+        let favouriteFoodVC: FavouriteFoodViewController = FavouriteFoodViewController(with: [])
         let favouriteFoodTab = tabBarItem(with: "favourite", and: "star")
         favouriteFoodVC.tabBarItem = favouriteFoodTab
 
@@ -43,6 +42,3 @@ final class HomeViewController: UITabBarController, StoryboardIdentifiable {
     }
 }
 
-extension HomeViewController: UITabBarControllerDelegate {
-
-}

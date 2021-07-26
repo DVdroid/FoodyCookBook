@@ -70,32 +70,6 @@ final class SearchFoodViewController: UIViewController, StoryboardIdentifiable {
         mealsTableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
     }
-
-    func filterContentForSearchText(_ searchText: String) {
-        mealsTableView.reloadData()
-    }
-}
-
-extension SearchFoodViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        meals.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mealcell") as? MealTableViewCell else {
-            return UITableViewCell()
-        }
-
-        let unwrappedMeal = meals[indexPath.row]
-        cell.thumbnailImageView.loadImageFromURL(urlString: unwrappedMeal.strMealThumb,
-                                                 targetSize: CGSize(width: 80, height: 80)) { status in
-        }
-
-        cell.headerLabel.text = unwrappedMeal.strMeal
-        cell.subHeaderLabel.text = unwrappedMeal.strCategory
-        return cell
-    }
 }
 
 extension SearchFoodViewController: UISearchResultsUpdating {
@@ -136,11 +110,50 @@ extension SearchFoodViewController: UISearchResultsUpdating {
     }
 }
 
+
+extension SearchFoodViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        meals.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mealcell") as? MealTableViewCell else {
+            return UITableViewCell()
+        }
+
+        let unwrappedMeal = meals[indexPath.row]
+        cell.thumbnailImageView.loadImageFromURL(urlString: unwrappedMeal.strMealThumb,
+                                                 targetSize: CGSize(width: 80, height: 80)) { status in
+        }
+
+        cell.headerLabel.text = unwrappedMeal.strMeal
+        cell.subHeaderLabel.text = unwrappedMeal.strCategory
+        return cell
+    }
+}
+
 extension SearchFoodViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let unwrappedMeal = meals[indexPath.row]
-        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: unwrappedMeal))
+
+        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: unwrappedMeal) { [weak self] meal in
+            guard let strongSelf = self else { return }
+            if !meal.isFavourite {
+                let isSaved = FilesManager.shared.save(meal: meal)
+                if isSaved {
+                    strongSelf.dismiss(animated: true)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                        UIAlertController.showOkAlert(in: strongSelf,
+                                                      with: "Success",
+                                                      and: "\(meal.strMeal) added as favourite")
+                    }
+                }
+            }
+        })
+        
         self.present(foodDetailView, animated: true, completion: nil)
     }
 }

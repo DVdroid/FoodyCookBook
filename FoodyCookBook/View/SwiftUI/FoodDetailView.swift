@@ -15,7 +15,8 @@ struct FoodDetailView: View {
     }
 
     var mode: Mode = .live
-    @State var meal: Meal
+    var meal: Meal
+    var action: ((Meal) -> Void)?
 
     private var foodImage: some View {
 
@@ -57,9 +58,11 @@ struct FoodDetailView: View {
                 HeaderView(title: "Meal of the day",
                            subTitle: "\(unwrappedMeal.strArea) cuisine")
                 foodImage
+                
                 DescriptionView(title: "\(unwrappedMeal.strMeal)",
-                                subTitle: "\(unwrappedMeal.strCategory)") {
-                    print("Marked as favourite!!!")
+                                subTitle: "\(unwrappedMeal.strCategory)",
+                                isFavourite: unwrappedMeal.isFavourite) {
+                    action?(unwrappedMeal)
                 }
                 ListView(meal: unwrappedMeal)
 
