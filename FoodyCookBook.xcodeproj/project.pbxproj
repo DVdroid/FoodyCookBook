@@ -37,7 +37,7 @@
 		D63B9D9626AF06CD0037616C /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */; };
 		D63B9D9726AF06CD0037616C /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */; };
 		D63B9D9926AF318C0037616C /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9826AF318C0037616C /* FavouriteButton.swift */; };
-		D63B9D9B26AF36AC0037616C /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9A26AF36AC0037616C /* FilesManager.swift */; };
+		D63B9D9B26AF36AC0037616C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9A26AF36AC0037616C /* StorageManager.swift */; };
 		D63B9D9F26AF750D0037616C /* UIAlertController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */; };
 		D695F61F26AFF51A002D0676 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695F61E26AFF51A002D0676 /* CustomAlert.swift */; };
 /* End PBXBuildFile section */
@@ -87,7 +87,7 @@
 		D63B9D9426AF06CD0037616C /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		D63B9D9526AF06CD0037616C /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
 		D63B9D9826AF318C0037616C /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
-		D63B9D9A26AF36AC0037616C /* FilesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
+		D63B9D9A26AF36AC0037616C /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ShowAlert.swift"; sourceTree = "<group>"; };
 		D695F61E26AFF51A002D0676 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,7 +213,7 @@
 		D629125A26AD4F44000C5732 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D63B9D9A26AF36AC0037616C /* FilesManager.swift */,
+				D63B9D9A26AF36AC0037616C /* StorageManager.swift */,
 				D629126926AD7F15000C5732 /* Food.swift */,
 			);
 			path = Model;
@@ -360,7 +360,7 @@
 				D629126A26AD7F15000C5732 /* Food.swift in Sources */,
 				D63B9D8D26AEB4950037616C /* HeaderView.swift in Sources */,
 				D63B9D8B26AEAF8B0037616C /* UIImage+Resize.swift in Sources */,
-				D63B9D9B26AF36AC0037616C /* FilesManager.swift in Sources */,
+				D63B9D9B26AF36AC0037616C /* StorageManager.swift in Sources */,
 				D629125826AD3F76000C5732 /* UIViewController+Storyboard.swift in Sources */,
 				D629125C26AD62DC000C5732 /* API.swift in Sources */,
 				D629127D26ADEA1E000C5732 /* AsyncImage.swift in Sources */,

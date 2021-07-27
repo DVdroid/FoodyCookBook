@@ -8,22 +8,37 @@
 import Foundation
 
 
-final class FilesManager {
+final class StorageManager {
 
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
 
     private init() {}
-    static let shared: FilesManager = FilesManager()
+    static let shared: StorageManager = StorageManager()
     private let fileManager = FileManager.default
 
     func save(meal: Meal) -> Bool {
         do {
-            guard var savedMeals: [Meal] = try? FilesManager.shared.loadJSON() else { return false }
+            guard var savedMeals: [Meal] = try? StorageManager.shared.loadJSON() else { return false }
             savedMeals.append(meal)
             // Write it to document directory again
-            let isSuccess = try FilesManager.shared.save(jsonObject: savedMeals)
-            isSuccess ? print("Data written successfully") : print("Failure")
+            let isSuccess = try StorageManager.shared.save(jsonObject: savedMeals)
+            isSuccess ? print("Meals written successfully") : print("Failure")
+            return isSuccess
+        } catch let error {
+            print("Error: \(error.localizedDescription)")
+            return false
+        }
+    }
+
+    func remove(meal: Meal) -> Bool {
+        do {
+            guard let savedMeals: [Meal] = try? StorageManager.shared.loadJSON() else { return false }
+            if savedMeals.isEmpty { return false }
+            let filteredMeals = savedMeals.filter { savedMeal in savedMeal.idMeal != meal.idMeal }
+            // Write it to document directory again
+            let isSuccess = try StorageManager.shared.save(jsonObject: filteredMeals)
+            isSuccess ? print("Meals updated successfully") : print("Failure")
             return isSuccess
         } catch let error {
             print("Error: \(error.localizedDescription)")

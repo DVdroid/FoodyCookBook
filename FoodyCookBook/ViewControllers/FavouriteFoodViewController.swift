@@ -53,7 +53,8 @@ final class FavouriteFoodViewController: UIViewController, StoryboardIdentifiabl
     }
 
     private func loadSaveMeals() {
-        guard let savedMeals: [Meal] = try? FilesManager.shared.loadJSON() else {
+        guard let savedMeals: [Meal] = try? StorageManager.shared.loadJSON(),
+        !savedMeals.isEmpty else {
             self.favouriteMealsTableView.isHidden = true
             return
         }
@@ -101,8 +102,22 @@ extension FavouriteFoodViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        let unwrappedMeal = favouriteMeals[indexPath.row]
-        let foodDetailView = UIHostingController(rootView: FoodDetailView().environmentObject(unwrappedMeal))
+
+        let meal = favouriteMeals[indexPath.row]
+        let foodDetailView = UIHostingController(rootView: FoodDetailView(){ (foodDetailView, selectedMeal, _) in
+            if !selectedMeal.isAlreadyFavourite {
+                let isSaved = StorageManager.shared.save(meal: selectedMeal)
+                if isSaved {
+                    foodDetailView.showAlert()
+                }
+            } else {
+                let isSaved = StorageManager.shared.remove(meal: selectedMeal)
+                if isSaved {
+                    foodDetailView.showAlert()
+                }
+            }
+        }.environmentObject(meal))
+
         self.present(foodDetailView, animated: true, completion: nil)
     }
 }

@@ -17,7 +17,7 @@ struct FoodDetailView: View {
     @EnvironmentObject var meal: Meal
     @State var showPopUp = false
     var mode: Mode = .live
-    var action: ((FoodDetailView, Meal) -> Void)?
+    var action: ((FoodDetailView, Meal, Bool) -> Void)?
 
     private var foodImage: some View {
 
@@ -63,16 +63,16 @@ struct FoodDetailView: View {
                                          subTitleText: "\(unwrappedMeal.strCategory)"))
 
                 DescriptionView(title: "\(unwrappedMeal.strArea) cuisine",
-                                isFavourite: unwrappedMeal.isFavourite) {
-                    action?(self, unwrappedMeal)
+                                isFavourite: unwrappedMeal.isFavourite) { flag in
+                    action?(self, unwrappedMeal, flag)
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.1, height: 60)
 
                 ListView()
 
                 if showPopUp {
-                    CustomAlert(title: "Success",
-                                message: "\(meal.strMeal) added as favourites",
+                    CustomAlert(title: "Done",
+                                message: "",
                                 shouldShowPopUp: $showPopUp)
                         .offset(x: 0, y: -100)
                 }

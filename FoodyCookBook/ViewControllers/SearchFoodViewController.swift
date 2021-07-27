@@ -140,9 +140,14 @@ extension SearchFoodViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         let meal = meals[indexPath.row]
-        let foodDetailView = UIHostingController(rootView: FoodDetailView() { (foodDetailView, selectedMeal) in
+        let foodDetailView = UIHostingController(rootView: FoodDetailView() { (foodDetailView, selectedMeal, _) in
             if !selectedMeal.isAlreadyFavourite {
-                let isSaved = FilesManager.shared.save(meal: selectedMeal)
+                let isSaved = StorageManager.shared.save(meal: selectedMeal)
+                if isSaved {
+                    foodDetailView.showAlert()
+                }
+            } else {
+                let isSaved = StorageManager.shared.remove(meal: selectedMeal)
                 if isSaved {
                     foodDetailView.showAlert()
                 }

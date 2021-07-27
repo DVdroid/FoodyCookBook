@@ -12,7 +12,7 @@ struct DescriptionView: View {
     @EnvironmentObject var meal: Meal
     var title: String
     var isFavourite: Bool
-    var action: (() -> Void)?
+    var action: ((Bool) -> Void)?
 
     var body: some View {
         HStack {
@@ -27,8 +27,8 @@ struct DescriptionView: View {
             }
 
             if let unwrappedAction = action {
-                FavouriteButton(isSet: $meal.isFavourite){
-                    unwrappedAction()
+                FavouriteButton(isSet: $meal.isFavourite){ flag in
+                    unwrappedAction(flag)
                 }
             }
         }

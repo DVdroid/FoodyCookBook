@@ -82,7 +82,7 @@ extension Food {
 
 final class Meal: Codable, ObservableObject {
 
-    var savedMeals: [Meal]? { try? FilesManager.shared.loadJSON() }
+    var savedMeals: [Meal]? { try? StorageManager.shared.loadJSON() }
     var isAlreadyFavourite: Bool {
         guard let unwrappedSavedMeals = savedMeals else { return false }
         return !unwrappedSavedMeals.filter { $0.idMeal == idMeal }.isEmpty
