@@ -102,7 +102,7 @@ extension FavouriteFoodViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let unwrappedMeal = favouriteMeals[indexPath.row]
-        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: unwrappedMeal))
+        let foodDetailView = UIHostingController(rootView: FoodDetailView().environmentObject(unwrappedMeal))
         self.present(foodDetailView, animated: true, completion: nil)
     }
 }

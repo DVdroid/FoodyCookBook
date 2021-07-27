@@ -14,9 +14,10 @@ struct FoodDetailView: View {
         case stub
     }
 
+    @EnvironmentObject var meal: Meal
+    @State var showPopUp = false
     var mode: Mode = .live
-    var meal: Meal
-    var action: ((Meal) -> Void)?
+    var action: ((FoodDetailView, Meal) -> Void)?
 
     private var foodImage: some View {
 
@@ -25,8 +26,8 @@ struct FoodDetailView: View {
                 if mode == .live {
                     AsyncImage(with: foodItem.strMealThumb,
                                andSize: .full)
-                        .frame(width: UIScreen.main.bounds.width / 1.1,
-                               height: UIScreen.main.bounds.height / 2.5)
+                        .frame(width: UIScreen.main.bounds.width / 1.05,
+                               height: UIScreen.main.bounds.height / 2.8)
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Rectangle())
                         .cornerRadius(20.0)
@@ -49,22 +50,32 @@ struct FoodDetailView: View {
                     .cornerRadius(20.0)
             }
         }
-
     }
 
     var body: some View {
+
         VStack {
             if let unwrappedMeal = meal {
-                HeaderView(title: "Meal of the day",
-                           subTitle: "\(unwrappedMeal.strArea) cuisine")
+                HeaderView(title: "Meal of the day")
+                    .frame(width: UIScreen.main.bounds.width / 1.1, height: 40)
                 foodImage
-                
-                DescriptionView(title: "\(unwrappedMeal.strMeal)",
-                                subTitle: "\(unwrappedMeal.strCategory)",
+                    .overlay(TextOverlay(titleText: "\(unwrappedMeal.strMeal)",
+                                         subTitleText: "\(unwrappedMeal.strCategory)"))
+
+                DescriptionView(title: "\(unwrappedMeal.strArea) cuisine",
                                 isFavourite: unwrappedMeal.isFavourite) {
-                    action?(unwrappedMeal)
+                    action?(self, unwrappedMeal)
                 }
-                ListView(meal: unwrappedMeal)
+                .frame(width: UIScreen.main.bounds.width / 1.1, height: 60)
+
+                ListView()
+
+                if showPopUp {
+                    CustomAlert(title: "Success",
+                                message: "\(meal.strMeal) added as favourites",
+                                shouldShowPopUp: $showPopUp)
+                        .offset(x: 0, y: -100)
+                }
 
             } else {
                 Text("Loading")
@@ -72,12 +83,41 @@ struct FoodDetailView: View {
         }
     }
 
+    func showAlert() {
+        self.showPopUp = true
+    }
+
+    func dismissPopUp() {
+        self.showPopUp = false
+    }
+}
+
+struct TextOverlay: View {
+    var titleText: String
+    var subTitleText: String
+
+    var gradient: LinearGradient {
+        LinearGradient(gradient: Gradient(
+                        colors: [Color.black.opacity(0.6), Color.black.opacity(0)]), startPoint: .bottom, endPoint: .center)
+    }
+
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            Rectangle().fill(gradient)
+            VStack(alignment: .leading) {
+                Text("\(titleText)")
+                    .font(.title)
+                    .bold()
+                Text(subTitleText)
+            }
+            .padding()
+        }
+        .foregroundColor(.white)
+    }
 }
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        var foodDetailView = FoodDetailView(meal: Food.mock.meals.first!)
-        foodDetailView.mode = .stub
-        return foodDetailView
+        FoodDetailView(mode: .stub).environmentObject(Food.mock.meals.first!)
     }
 }

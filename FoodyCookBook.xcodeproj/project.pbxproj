@@ -39,6 +39,7 @@
 		D63B9D9926AF318C0037616C /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9826AF318C0037616C /* FavouriteButton.swift */; };
 		D63B9D9B26AF36AC0037616C /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9A26AF36AC0037616C /* FilesManager.swift */; };
 		D63B9D9F26AF750D0037616C /* UIAlertController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */; };
+		D695F61F26AFF51A002D0676 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695F61E26AFF51A002D0676 /* CustomAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		D63B9D9826AF318C0037616C /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 		D63B9D9A26AF36AC0037616C /* FilesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		D63B9D9E26AF750D0037616C /* UIAlertController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ShowAlert.swift"; sourceTree = "<group>"; };
+		D695F61E26AFF51A002D0676 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				D629126D26ADD575000C5732 /* ListView.swift */,
 				D629127C26ADEA1E000C5732 /* AsyncImage.swift */,
 				D63B9D9826AF318C0037616C /* FavouriteButton.swift */,
+				D695F61E26AFF51A002D0676 /* CustomAlert.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				D629126826AD717E000C5732 /* Color+Extensions.swift in Sources */,
 				D629126626AD712A000C5732 /* LoadingIndicator_ActivityIndicator.swift in Sources */,
 				D629125526AD3DE6000C5732 /* HomeViewController.swift in Sources */,
+				D695F61F26AFF51A002D0676 /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

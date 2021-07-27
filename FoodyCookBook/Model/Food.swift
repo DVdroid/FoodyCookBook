@@ -21,7 +21,7 @@ extension Food {
         let ingredient4 = Ingredient(ingredient: "Cream Cheese", measure: "450g")
         let ingredient5 = Ingredient(ingredient: "Vanilla Extract", measure: "1tsp")
 
-        let meal_1 = Meal(ingredients: [ingredient1, ingredient2, ingredient3, ingredient4, ingredient5],
+        let meal = Meal(ingredients: [ingredient1, ingredient2, ingredient3, ingredient4, ingredient5],
                              idMeal: "52833",
                              strMeal: "Salted Caramel Cheesecake",
                              strDrinkAlternate: nil,
@@ -76,74 +76,20 @@ extension Food {
                              strCreativeCommonsConfirmed: nil,
                              dateModified: nil)
 
-        let meal_2 = Meal(ingredients: [ingredient1, ingredient2, ingredient3, ingredient4, ingredient5],
-                             idMeal: "52833",
-                             strMeal: "Salted Caramel Cheesecake",
-                             strDrinkAlternate: nil,
-                             strCategory: "Dessert",
-                             strArea: "American",
-                             strInstructions: "Blitz the biscuits and the pretzels in a food processor and mix the biscuits with the melted butter",
-                             strMealThumb: "https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg",
-                             strTags: nil,
-                             strYoutube: "https://www.youtube.com/watch?v=q5dQp3qpmI4",
-                             strIngredient1: "Digestive Biscuits",
-                             strIngredient2: "Pretzels",
-                             strIngredient3: "Butter",
-                             strIngredient4: "Cream Cheese",
-                             strIngredient5: "Vanilla Extract",
-                             strIngredient6: "",
-                             strIngredient7: "",
-                             strIngredient8: "",
-                             strIngredient9: "",
-                             strIngredient10: "",
-                             strIngredient11: "",
-                             strIngredient12: "",
-                             strIngredient13: "",
-                             strIngredient14: "",
-                             strIngredient15: "",
-                             strIngredient16: "",
-                             strIngredient17: "",
-                             strIngredient18: "",
-                             strIngredient19: "",
-                             strIngredient20: "",
-                             strMeasure1: "250g",
-                             strMeasure2: "75g",
-                             strMeasure3: "135g",
-                             strMeasure4: "450g",
-                             strMeasure5: "1tsp",
-                             strMeasure6: "",
-                             strMeasure7: "",
-                             strMeasure8: "",
-                             strMeasure9: "",
-                             strMeasure10: "",
-                             strMeasure11: "",
-                             strMeasure12: "",
-                             strMeasure13: "",
-                             strMeasure14: "",
-                             strMeasure15: "",
-                             strMeasure16: "",
-                             strMeasure17: "",
-                             strMeasure18: "",
-                             strMeasure19: "",
-                             strMeasure20: "",
-                             strSource: "http://www.janespatisserie.com/2015/11/09/no-bake-salted-caramel-cheesecake/",
-                             strImageSource: nil,
-                             strCreativeCommonsConfirmed: nil,
-                             dateModified: nil)
-
-        return Food(with: [meal_1, meal_2])
+        return Food(with: [meal])
     }
 }
 
-struct Meal: Codable {
-
-    private(set) var ingredients: [Ingredient]
+final class Meal: Codable, ObservableObject {
 
     var savedMeals: [Meal]? { try? FilesManager.shared.loadJSON() }
-    var isFavourite: Bool {
+    var isAlreadyFavourite: Bool {
         guard let unwrappedSavedMeals = savedMeals else { return false }
         return !unwrappedSavedMeals.filter { $0.idMeal == idMeal }.isEmpty
     }
+
+    private(set) var ingredients: [Ingredient]
+    @Published var isFavourite: Bool = false
 
     let idMeal: String
     let strMeal: String
@@ -200,6 +146,7 @@ struct Meal: Codable {
     let dateModified: String?
 
     enum CodingKeys: String, CodingKey {
+        case isFavourite
         case idMeal
         case strMeal
         case strDrinkAlternate
@@ -255,14 +202,16 @@ struct Meal: Codable {
         case dateModified
     }
 
-}
-
-extension Meal {
-
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         var tempIngredients = [Ingredient]()
+
+        if container.contains(.isFavourite) {
+            isFavourite = try container.decode(Bool.self, forKey: .isFavourite)
+        } else {
+            isFavourite = false
+        }
 
         idMeal = try container.decode(String.self, forKey: .idMeal)
         strMeal = try container.decode(String.self, forKey: .strMeal)
@@ -387,6 +336,123 @@ extension Meal {
         }
         return Ingredient(ingredient: name, measure: measure)
     }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encodeIfPresent(isFavourite, forKey: .isFavourite)
+        try container.encode(idMeal, forKey: .idMeal)
+        try container.encode(strMeal, forKey: .strMeal)
+        try container.encodeIfPresent(strDrinkAlternate, forKey: .strDrinkAlternate)
+        try container.encode(strCategory, forKey: .strCategory)
+        try container.encode(strArea, forKey: .strArea)
+        try container.encode(strInstructions, forKey: .strInstructions)
+        try container.encode(strMealThumb, forKey: .strMealThumb)
+        try container.encodeIfPresent(strTags, forKey: .strTags)
+        try container.encode(strYoutube, forKey: .strYoutube)
+        try container.encodeIfPresent(strIngredient1, forKey: .strIngredient1)
+        try container.encodeIfPresent(strIngredient2, forKey: .strIngredient2)
+        try container.encodeIfPresent(strIngredient3, forKey: .strIngredient3)
+        try container.encodeIfPresent(strIngredient4, forKey: .strIngredient4)
+        try container.encodeIfPresent(strIngredient5, forKey: .strIngredient5)
+        try container.encodeIfPresent(strIngredient6, forKey: .strIngredient6)
+        try container.encodeIfPresent(strIngredient7, forKey: .strIngredient7)
+        try container.encodeIfPresent(strIngredient8, forKey: .strIngredient8)
+        try container.encodeIfPresent(strIngredient9, forKey: .strIngredient9)
+        try container.encodeIfPresent(strIngredient10, forKey: .strIngredient10)
+        try container.encodeIfPresent(strIngredient11, forKey: .strIngredient11)
+        try container.encodeIfPresent(strIngredient12, forKey: .strIngredient12)
+        try container.encodeIfPresent(strIngredient13, forKey: .strIngredient13)
+        try container.encodeIfPresent(strIngredient14, forKey: .strIngredient14)
+        try container.encodeIfPresent(strIngredient15, forKey: .strIngredient15)
+        try container.encodeIfPresent(strIngredient16, forKey: .strIngredient16)
+        try container.encodeIfPresent(strIngredient17, forKey: .strIngredient17)
+        try container.encodeIfPresent(strIngredient18, forKey: .strIngredient18)
+        try container.encodeIfPresent(strIngredient19, forKey: .strIngredient19)
+        try container.encodeIfPresent(strIngredient20, forKey: .strIngredient20)
+        try container.encodeIfPresent(strMeasure1, forKey: .strMeasure1)
+        try container.encodeIfPresent(strMeasure2, forKey: .strMeasure2)
+        try container.encodeIfPresent(strMeasure3, forKey: .strMeasure3)
+        try container.encodeIfPresent(strMeasure4, forKey: .strMeasure4)
+        try container.encodeIfPresent(strMeasure5, forKey: .strMeasure5)
+        try container.encodeIfPresent(strMeasure6, forKey: .strMeasure6)
+        try container.encodeIfPresent(strMeasure7, forKey: .strMeasure7)
+        try container.encodeIfPresent(strMeasure8, forKey: .strMeasure8)
+        try container.encodeIfPresent(strMeasure9, forKey: .strMeasure9)
+        try container.encodeIfPresent(strMeasure10, forKey: .strMeasure10)
+        try container.encodeIfPresent(strMeasure11, forKey: .strMeasure11)
+        try container.encodeIfPresent(strMeasure12, forKey: .strMeasure12)
+        try container.encodeIfPresent(strMeasure13, forKey: .strMeasure13)
+        try container.encodeIfPresent(strMeasure14, forKey: .strMeasure14)
+        try container.encodeIfPresent(strMeasure15, forKey: .strMeasure15)
+        try container.encodeIfPresent(strMeasure16, forKey: .strMeasure16)
+        try container.encodeIfPresent(strMeasure17, forKey: .strMeasure17)
+        try container.encodeIfPresent(strMeasure18, forKey: .strMeasure18)
+        try container.encodeIfPresent(strMeasure19, forKey: .strMeasure19)
+        try container.encodeIfPresent(strMeasure20, forKey: .strMeasure20)
+        try container.encodeIfPresent(strSource, forKey: .strSource)
+        try container.encodeIfPresent(strImageSource, forKey: .strImageSource)
+        try container.encodeIfPresent(strCreativeCommonsConfirmed, forKey: .strCreativeCommonsConfirmed)
+        try container.encodeIfPresent(dateModified, forKey: .dateModified)
+    }
+
+    internal init(isFavourite: Bool = false, ingredients: [Ingredient], idMeal: String, strMeal: String, strDrinkAlternate: String?, strCategory: String, strArea: String, strInstructions: String, strMealThumb: String, strTags: String?, strYoutube: String, strIngredient1: String?, strIngredient2: String?, strIngredient3: String?, strIngredient4: String?, strIngredient5: String?, strIngredient6: String?, strIngredient7: String?, strIngredient8: String?, strIngredient9: String?, strIngredient10: String?, strIngredient11: String?, strIngredient12: String?, strIngredient13: String?, strIngredient14: String?, strIngredient15: String?, strIngredient16: String?, strIngredient17: String?, strIngredient18: String?, strIngredient19: String?, strIngredient20: String?, strMeasure1: String?, strMeasure2: String?, strMeasure3: String?, strMeasure4: String?, strMeasure5: String?, strMeasure6: String?, strMeasure7: String?, strMeasure8: String?, strMeasure9: String?, strMeasure10: String?, strMeasure11: String?, strMeasure12: String?, strMeasure13: String?, strMeasure14: String?, strMeasure15: String?, strMeasure16: String?, strMeasure17: String?, strMeasure18: String?, strMeasure19: String?, strMeasure20: String?, strSource: String?, strImageSource: String?, strCreativeCommonsConfirmed: String?, dateModified: String?) {
+        self.isFavourite = isFavourite
+        self.ingredients = ingredients
+        self.idMeal = idMeal
+        self.strMeal = strMeal
+        self.strDrinkAlternate = strDrinkAlternate
+        self.strCategory = strCategory
+        self.strArea = strArea
+        self.strInstructions = strInstructions
+        self.strMealThumb = strMealThumb
+        self.strTags = strTags
+        self.strYoutube = strYoutube
+        self.strIngredient1 = strIngredient1
+        self.strIngredient2 = strIngredient2
+        self.strIngredient3 = strIngredient3
+        self.strIngredient4 = strIngredient4
+        self.strIngredient5 = strIngredient5
+        self.strIngredient6 = strIngredient6
+        self.strIngredient7 = strIngredient7
+        self.strIngredient8 = strIngredient8
+        self.strIngredient9 = strIngredient9
+        self.strIngredient10 = strIngredient10
+        self.strIngredient11 = strIngredient11
+        self.strIngredient12 = strIngredient12
+        self.strIngredient13 = strIngredient13
+        self.strIngredient14 = strIngredient14
+        self.strIngredient15 = strIngredient15
+        self.strIngredient16 = strIngredient16
+        self.strIngredient17 = strIngredient17
+        self.strIngredient18 = strIngredient18
+        self.strIngredient19 = strIngredient19
+        self.strIngredient20 = strIngredient20
+        self.strMeasure1 = strMeasure1
+        self.strMeasure2 = strMeasure2
+        self.strMeasure3 = strMeasure3
+        self.strMeasure4 = strMeasure4
+        self.strMeasure5 = strMeasure5
+        self.strMeasure6 = strMeasure6
+        self.strMeasure7 = strMeasure7
+        self.strMeasure8 = strMeasure8
+        self.strMeasure9 = strMeasure9
+        self.strMeasure10 = strMeasure10
+        self.strMeasure11 = strMeasure11
+        self.strMeasure12 = strMeasure12
+        self.strMeasure13 = strMeasure13
+        self.strMeasure14 = strMeasure14
+        self.strMeasure15 = strMeasure15
+        self.strMeasure16 = strMeasure16
+        self.strMeasure17 = strMeasure17
+        self.strMeasure18 = strMeasure18
+        self.strMeasure19 = strMeasure19
+        self.strMeasure20 = strMeasure20
+        self.strSource = strSource
+        self.strImageSource = strImageSource
+        self.strCreativeCommonsConfirmed = strCreativeCommonsConfirmed
+        self.dateModified = dateModified
+    }
 }
 
 extension Meal: CustomDebugStringConvertible {
@@ -395,14 +461,14 @@ extension Meal: CustomDebugStringConvertible {
     }
 }
 
-
 struct Ingredient: Codable {
     private(set) var ingredientID = UUID()
     let ingredient: String?
     let measure: String?
 
     var isEmpty: Bool {
-        (ingredient?.isEmpty ?? true && measure?.isEmpty ?? true)
+        (ingredient?.trimmingCharacters(in: .whitespaces).isEmpty ?? true &&
+            measure?.trimmingCharacters(in: .whitespaces).isEmpty ?? true)
     }
 }
 

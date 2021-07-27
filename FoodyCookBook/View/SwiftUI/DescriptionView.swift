@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DescriptionView: View {
 
+    @EnvironmentObject var meal: Meal
     var title: String
-    var subTitle: String
     var isFavourite: Bool
     var action: (() -> Void)?
 
@@ -18,35 +18,26 @@ struct DescriptionView: View {
         HStack {
             VStack {
                 Text("\(title)")
-                    .frame(width: UIScreen.main.bounds.width / 1.4, alignment: .leading)
-                    .font(.title)
-                Text("\(subTitle)")
-                    .font(.caption)
-                    .frame(width: UIScreen.main.bounds.width / 1.4, alignment: .leading)
+                    .frame(width: UIScreen.main.bounds.width / 1.4,
+                           height: 20,
+                           alignment: .leading)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                
             }
 
             if let unwrappedAction = action {
-                Button(action: unwrappedAction) {
-                    if isFavourite {
-                        Image(systemName: "star.fill")
-                    } else {
-                        Image(systemName: "star")
-                    }
+                FavouriteButton(isSet: $meal.isFavourite){
+                    unwrappedAction()
                 }
-                .foregroundColor(.orange)
-                .cornerRadius(16)
-                .frame(width: 80, height: 80.0)
             }
         }
-        .padding()
     }
-
 }
 
 struct DescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         DescriptionView(title: "Title",
-                        subTitle: "Subtitle",
                         isFavourite: true)
     }
 }

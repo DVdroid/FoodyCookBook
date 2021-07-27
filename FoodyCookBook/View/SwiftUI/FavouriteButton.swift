@@ -9,19 +9,25 @@ import SwiftUI
 
 struct FavouriteButton: View {
     @Binding var isSet: Bool
-
+    @State private var showingAlert = false
+    var action: (() -> Void)
+    
     var body: some View {
         Button(action: {
-            isSet.toggle()
-        }) {
+                isSet.toggle()
+                showingAlert = true
+                action()}) {
             Image(systemName: isSet ? "star.fill" : "star")
                 .foregroundColor(isSet ? Color.yellow : Color.gray)
         }
+        .foregroundColor(.orange)
+        .cornerRadius(16)
+        .frame(width: 80, height: 80.0)
     }
 }
 
 struct FavouriteButton_Previews: PreviewProvider {
     static var previews: some View {
-        FavouriteButton(isSet: .constant(true))
+        FavouriteButton(isSet: .constant(true)){}
     }
 }

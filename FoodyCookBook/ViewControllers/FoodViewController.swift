@@ -54,18 +54,15 @@ final class FoodViewController: UIViewController, StoryboardIdentifiable {
 
     private func showFoodDetailView(with food: Food) {
         guard let meal = food.meals.first else { return }
-        
-        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: meal) { [weak self] meal in
-            guard let self = self else { return }
-            if !meal.isFavourite {
-                let isSaved = FilesManager.shared.save(meal: meal)
+
+        let foodDetailView = UIHostingController(rootView: FoodDetailView() { (foodDetailView, selectedMeal) in
+            if !selectedMeal.isAlreadyFavourite {
+                let isSaved = FilesManager.shared.save(meal: selectedMeal)
                 if isSaved {
-                    UIAlertController.showOkAlert(in: self,
-                                                  with: "Success",
-                                                  and: "\(meal.strMeal) added as favourite")
+                    foodDetailView.showAlert()
                 }
             }
-        })
+        }.environmentObject(meal))
         
         add(foodDetailView)
         view.setupConstraintsFromAllSides(with: foodDetailView.view)

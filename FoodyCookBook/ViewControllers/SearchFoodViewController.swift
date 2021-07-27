@@ -44,6 +44,7 @@ final class SearchFoodViewController: UIViewController, StoryboardIdentifiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.title = "asdasdasd"
         view.backgroundColor = .white
         setupSubView()
         configureTableView()
@@ -135,24 +136,18 @@ extension SearchFoodViewController: UITableViewDataSource {
 
 extension SearchFoodViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         tableView.deselectRow(at: indexPath, animated: false)
-        let unwrappedMeal = meals[indexPath.row]
 
-        let foodDetailView = UIHostingController(rootView: FoodDetailView(meal: unwrappedMeal) { [weak self] meal in
-            guard let strongSelf = self else { return }
-            if !meal.isFavourite {
-                let isSaved = FilesManager.shared.save(meal: meal)
+        let meal = meals[indexPath.row]
+        let foodDetailView = UIHostingController(rootView: FoodDetailView() { (foodDetailView, selectedMeal) in
+            if !selectedMeal.isAlreadyFavourite {
+                let isSaved = FilesManager.shared.save(meal: selectedMeal)
                 if isSaved {
-                    strongSelf.dismiss(animated: true)
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                        UIAlertController.showOkAlert(in: strongSelf,
-                                                      with: "Success",
-                                                      and: "\(meal.strMeal) added as favourite")
-                    }
+                    foodDetailView.showAlert()
                 }
             }
-        })
+        }.environmentObject(meal))
         
         self.present(foodDetailView, animated: true, completion: nil)
     }
