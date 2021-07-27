@@ -19,16 +19,18 @@ This is ai demo iOS application that shows random meals to the user. This applic
 
 
 ## Demo
-![Demo Video](./Demo/FoodyCookBook.MP4 "FoodyCookBook Demo Video")
+
+![Demo Video](./Demo/FoodyCookBook.gif "FoodyCookBook Demo")
+
 
 ## Screenshots
 
-![Home Screen](./img/Home_Scren.png?raw=true "3. Home Screen")
-![No Favourite Meal Screen](./img/No_Favourite_Meal.png?raw=true "4. No Connection Screen")
-![Favourite Meal Screen](./img/Favourite.png?raw=true "5. Delete Employee Screen")
-![Favourite Meal Details Screen](./img/Favourite_Meal_Details.png?raw=true "6. Confirm Delete Employee Screen")
-![Search Meal Details](./img/Search_Meal_Details.png?raw=true "7. Sort Employee List")
-![Search Meal Screen](./img/Search_Meal.png?raw=true "8. Employee Detail Screent")
+![Home Screen](./img/Home_Scren.png?raw=true "1. Home Screen")
+![No Favourite Meal Screen](./img/No_Favourite_Meal.png?raw=true "2. No Connection Screen")
+![Favourite Meal Screen](./img/Favourite.png?raw=true "3. Delete Employee Screen")
+![Favourite Meal Details Screen](./img/Favourite_Meal_Details.png?raw=true "4. Confirm Delete Employee Screen")
+![Search Meal Details](./img/Search_Meal_Details.png?raw=true "5. Sort Employee List")
+![Search Meal Screen](./img/Search_Meal.png?raw=true "6. Employee Detail Screen")
 
 
 ## Technologies

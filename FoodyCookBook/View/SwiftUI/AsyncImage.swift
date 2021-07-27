@@ -55,8 +55,8 @@ struct AsyncImage: UIViewRepresentable {
             let targetSize: CGSize
             switch sizeType {
             case .full:
-                targetSize = CGSize(width: UIScreen.main.bounds.width / 1.05,
-                                    height: UIScreen.main.bounds.height / 2.8)
+                targetSize = CGSize(width: UIScreen.main.bounds.width * 0.8,
+                                    height: UIScreen.main.bounds.height * 0.85)
             case .thumbnail:
                 targetSize = CGSize(width: 40, height: 40)
             }

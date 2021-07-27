@@ -34,16 +34,16 @@ struct FoodDetailView: View {
 
                 } else {
                     Image("recipe-placeholder")
-                        .frame(width: UIScreen.main.bounds.width / 1.1,
-                               height: UIScreen.main.bounds.height / 2.5)
+                        .frame(width: UIScreen.main.bounds.width / 1.05,
+                               height: UIScreen.main.bounds.height / 2.8)
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Rectangle())
                         .cornerRadius(20.0)
                 }
             } else {
                 Image("recipe-placeholder")
-                    .frame(width: UIScreen.main.bounds.width / 1.1,
-                           height: UIScreen.main.bounds.height / 2.5)
+                    .frame(width: UIScreen.main.bounds.width / 1.05,
+                           height: UIScreen.main.bounds.height / 2.8)
                     .background(Color.gray)
                     .aspectRatio(contentMode: .fill)
                     .clipShape(Rectangle())

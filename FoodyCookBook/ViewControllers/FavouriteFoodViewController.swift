@@ -105,6 +105,8 @@ extension FavouriteFoodViewController: UITableViewDelegate {
 
         let meal = favouriteMeals[indexPath.row]
         let foodDetailView = UIHostingController(rootView: FoodDetailView(){ (foodDetailView, selectedMeal, _) in
+
+            self.dismiss(animated: true, completion: nil)
             if !selectedMeal.isAlreadyFavourite {
                 let isSaved = StorageManager.shared.save(meal: selectedMeal)
                 if isSaved {
@@ -116,8 +118,12 @@ extension FavouriteFoodViewController: UITableViewDelegate {
                     foodDetailView.showAlert()
                 }
             }
+
+            DispatchQueue.main.async { self.loadSaveMeals() }
+
         }.environmentObject(meal))
 
         self.present(foodDetailView, animated: true, completion: nil)
     }
 }
+
