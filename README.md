@@ -2,6 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Demo](#screenshots)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
@@ -16,9 +17,13 @@ This is ai demo iOS application that shows random meals to the user. This applic
 * Search - Can search meal by first letter of it's name. Can select any search result to the details of the meal.
 * Favourite - Shows a list of meals marked as favourite.
 
+
+## Demo
+![Demo Video](./Demo/FoodyCookBook.MP4 "FoodyCookBook Demo Video")
+
 ## Screenshots
 
-![Home Screen](./img/Home_Screen.png?raw=true "3. Home Screen")
+![Home Screen](./img/Home_Scren.png?raw=true "3. Home Screen")
 ![No Favourite Meal Screen](./img/No_Favourite_Meal.png?raw=true "4. No Connection Screen")
 ![Favourite Meal Screen](./img/Favourite.png?raw=true "5. Delete Employee Screen")
 ![Favourite Meal Details Screen](./img/Favourite_Meal_Details.png?raw=true "6. Confirm Delete Employee Screen")
