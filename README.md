@@ -48,4 +48,4 @@ Project is: _in progress_
 Done as a sample project.
 
 ## Contact
-Created by [@DVdroid](anandin02@gmail.com) - feel free to contact me!
+Feel free to contact me - anandin02@gmail.com
